@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<br>
+<div class="text-center">
+    <h1>Weather</h1>
+    <p>Enter your city and get the weather!</p>
+</div>
+<div class="container mt-">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.name }}
+                <input type="submit" name="send" value="Enter" class="mt-4 btn btn-primary">
+            </form>
+        </div>
+
+        <div class="col-10 offset-1">
+            <p>Info:</p>
+
+            {% for info in all_info %}
+            <div class="row">
+                <div class="col-2">
+                    <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="weather img">
+                </div>
+                <div class="col-8">
+                    <b>City:</b> {{ info.city }}<br>
+                    <b>Temperature:</b> {{ info.temp }}<sup>o</sup>C
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JavaScript and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

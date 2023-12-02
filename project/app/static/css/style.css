@@ -1,0 +1,14 @@
+body {
+    background: skyblue;
+    background-size: cover;
+    font-family: "Prompt", serif;
+    color: white;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+p {
+    font-size: 30px;
+}
